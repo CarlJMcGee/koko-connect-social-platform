@@ -1,0 +1,8 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const router = (0, express_1.Router)();
+const userRoutes = require("./user-routes");
+router.use("/users", userRoutes);
+module.exports = router;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvcm91dGVzL2FwaS9pbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLHFDQUFpQztBQUNqQyxNQUFNLE1BQU0sR0FBRyxJQUFBLGdCQUFNLEdBQUUsQ0FBQztBQUN4QixNQUFNLFVBQVUsR0FBRyxPQUFPLENBQUMsZUFBZSxDQUFDLENBQUM7QUFFNUMsTUFBTSxDQUFDLEdBQUcsQ0FBQyxRQUFRLEVBQUUsVUFBVSxDQUFDLENBQUM7QUFHakMsTUFBTSxDQUFDLE9BQU8sR0FBRyxNQUFNLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBSb3V0ZXIgfSBmcm9tIFwiZXhwcmVzc1wiO1xyXG5jb25zdCByb3V0ZXIgPSBSb3V0ZXIoKTtcclxuY29uc3QgdXNlclJvdXRlcyA9IHJlcXVpcmUoXCIuL3VzZXItcm91dGVzXCIpO1xyXG5cclxucm91dGVyLnVzZShcIi91c2Vyc1wiLCB1c2VyUm91dGVzKTtcclxuXHJcbmV4cG9ydCB7fTtcclxubW9kdWxlLmV4cG9ydHMgPSByb3V0ZXI7XHJcbiJdfQ==

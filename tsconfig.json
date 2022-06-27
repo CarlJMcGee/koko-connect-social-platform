@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "esnext",
+    "allowJs": true,
+    "rootDir": "./src",
+    "outDir": "./",
+    "baseUrl": "./src",
+    "typeRoots": ["./node_modules/@types"],
+    "types": ["node", "jest", "express", "mongoose"],
+    "moduleResolution": "Node",
+    "incremental": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "watch": true
+  },
+  "exclude": ["node_modules"],
+  "include": ["./src"]
+}
