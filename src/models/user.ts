@@ -3,8 +3,8 @@ import { model, Schema } from "mongoose";
 interface userInt {
   username: string;
   email: string;
-  thoughts: number[];
-  friends: number[];
+  thoughts: string[];
+  friends: string[];
 }
 
 const UserSchema = new Schema<userInt>({
@@ -12,6 +12,7 @@ const UserSchema = new Schema<userInt>({
     type: String,
     unique: true,
     required: true,
+    trim: true,
   },
   email: {
     type: String,
@@ -19,10 +20,10 @@ const UserSchema = new Schema<userInt>({
     required: true,
   },
   thoughts: {
-    type: [Number],
+    type: [String],
   },
   friends: {
-    type: [Number],
+    type: [String],
   },
 });
 

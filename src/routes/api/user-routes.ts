@@ -1,9 +1,16 @@
 // const router = require("express").Router();
 import { Router } from "express";
 const router = Router();
-import { getAllUsers } from "../../controllers/user-controller";
+import {
+  getAllUsers,
+  getUser,
+  createUser,
+  updateUser,
+  deleteUser,
+} from "../../controllers/user-controller";
 
-router.route("/").get(getAllUsers);
+router.route("/").get(getAllUsers).post(createUser);
+router.route("/:id").get(getUser).put(updateUser).delete(deleteUser);
 
 export {};
 module.exports = router;
