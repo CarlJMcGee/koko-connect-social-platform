@@ -77,18 +77,27 @@ const thoughtsController = {
 
   // create reaction
   async createReaction({ params, body }, res) {
-    const thought = await Thoughts.findById(params.id);
-    thought.reactions.push(body);
-    await thought.save();
-    res.status(201).send(`Reaction by ${body.username} posted`);
+    try {
+      const thought = await Thoughts.findById(params.id);
+      thought.reactions.push(body);
+      await thought.save();
+      res.status(201).send(`Reaction by ${body.username} posted`);
+    } catch (err) {
+      if (err) throw err;
+    }
   },
 
   // delete reaction
   async deleteReaction({ params }, res) {
-    const thought = await Thoughts.findByIdAndUpdate(params.id, {
-      $pull: { reactions: { reactionId: params.reactionId } },
-    });
-    res.status(200).send(`Reaction Deleted`);
+    try {
+      const thought = await Thoughts.findByIdAndUpdate(params.id, {
+        $pull: { reactions: { reactionId: params.reactionId } },
+      });
+      res.status(200).send(`Reaction Deleted`);
+    } catch (err) {
+      if (err) throw err;
+    }
   },
 };
+
 export = thoughtsController;

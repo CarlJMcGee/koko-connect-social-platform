@@ -62,6 +62,26 @@ const userController = {
       if (err) throw err;
     }
   },
+
+  // add friend
+  async addFriend({ params }, res) {
+    try {
+      const user = await User.findById(params.id);
+      user.friends.push(params.friendId);
+      user.save();
+      res.status(200).send(`Friend Removed`);
+    } catch (err) {}
+  },
+
+  // remove friend
+  async removeFriend({ params }, res) {
+    try {
+      const user = await User.findByIdAndUpdate(params.id, {
+        $pull: { friends: params.friendId },
+      });
+      res.status(200).send(`Friend Removed`);
+    } catch (err) {}
+  },
 };
 
 export = userController;
