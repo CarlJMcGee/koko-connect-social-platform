@@ -1,4 +1,4 @@
-import { User } from "../models";
+import { Thoughts, User } from "../models";
 
 const userController = {
   // get all users data
@@ -39,6 +39,10 @@ const userController = {
   async updateUser({ params, body }, res) {
     try {
       const user = await User.findByIdAndUpdate(params.id, body);
+      if (!user) {
+        res.status(404).send(`User Not Found`);
+        return;
+      }
       res.status(200).send(`User ${user} updated`);
     } catch (err) {
       if (err) throw err;
@@ -48,7 +52,11 @@ const userController = {
   // delete user data
   async deleteUser({ params }, res) {
     try {
-      const user = await User.findByIdAndDelete(params.id);
+      const user = await User.findById(params.id);
+      user.thoughts.map(async (thought) => {
+        await Thoughts.findByIdAndDelete(thought);
+      });
+      const deletedUser = await User.findByIdAndDelete(params.id);
       res.status(200).send(`User #${params.id} deleted`);
     } catch (err) {
       if (err) throw err;

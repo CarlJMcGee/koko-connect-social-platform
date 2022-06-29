@@ -2,7 +2,7 @@ import { Schema, model } from "mongoose";
 
 const ThoughtsSchema = new Schema(
   {
-    thoughText: {
+    thoughtText: {
       type: String,
       required: `Text content is required.`,
       validate: [
