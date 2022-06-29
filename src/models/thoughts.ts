@@ -1,4 +1,5 @@
 import { Schema, model } from "mongoose";
+import ReactionSchema from "./reactions";
 
 const ThoughtsSchema = new Schema(
   {
@@ -18,6 +19,7 @@ const ThoughtsSchema = new Schema(
       type: String,
       required: `Username is required.`,
     },
+    reactions: [ReactionSchema],
   },
   {
     id: false,

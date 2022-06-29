@@ -74,6 +74,8 @@ const thoughtsController = {
       res.status(200).send(`Thought deleted`);
     } catch (err) {}
   },
-};
 
+  // create reaction
+  async createReaction({ params, body }, res) {},
+};
 export = thoughtsController;
