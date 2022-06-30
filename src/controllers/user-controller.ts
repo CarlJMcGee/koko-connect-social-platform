@@ -4,7 +4,7 @@ const userController = {
   // get all users data
   async getAllUsers(req, res) {
     try {
-      const users = await User.find({});
+      const users = await User.find({}).populate("thoughts");
       res.json(users);
     } catch (err) {
       if (err) throw err;
@@ -14,7 +14,7 @@ const userController = {
   // get single user data from id
   async getUser({ params }, res) {
     try {
-      const user = await User.findById(params.id);
+      const user = await User.findById(params.id).populate("thoughts");
       if (!user) {
         res.status(404).send(`User Not Found`);
         return;
