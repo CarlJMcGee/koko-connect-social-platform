@@ -69,7 +69,7 @@ const userController = {
       const user = await User.findById(params.id);
       user.friends.push(params.friendId);
       user.save();
-      res.status(200).send(`Friend Removed`);
+      res.status(200).send(`Friend Added`);
     } catch (err) {}
   },
 

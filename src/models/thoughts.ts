@@ -12,8 +12,7 @@ const ReactionSchema = new Schema(
       validate: [({ length }) => length >= 1 && length <= 280],
     },
     username: {
-      type: Schema.Types.ObjectId,
-      ref: "User",
+      type: String,
       required: `Must have a Username`,
     },
     createdAt: {
